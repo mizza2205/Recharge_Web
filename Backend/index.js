@@ -2,12 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cors = require('cors');
 require("dotenv").config();
 
 const User = require("./models/User");
 
 const app = express();
 app.use(express.json());
+// CORS enable (simple)
+app.use(cors());
 
 // MongoDB connect
 mongoose.connect("mongodb://127.0.0.1:27017/recharge_app")
